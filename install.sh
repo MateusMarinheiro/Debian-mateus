@@ -29,9 +29,10 @@ mv user-dirs.dirs /home/$username/.config
 chown -R $username:$username /home/$username
 
 # Installing Essential Programs 
-nala install feh bspwm sxhkd kitty arandr rofi polybar picom thunar lxpolkit x11-xserver-utils unzip yad wget pulseaudio pavucontrol -y
+# Consider: picom thunar
+nala install feh bspwm sxhkd alacritty arandr rofi polybar lxpolkit x11-xserver-utils unzip yad wget pulseaudio pavucontrol -y
 # Installing Other less important Programs
-nala install neofetch flameshot psmisc vim lxappearance papirus-icon-theme fonts-noto-color-emoji lightdm zoxide -y
+nala install neofetch flameshot psmisc vim neovim lxappearance fonts-noto-color-emoji -y
 
 # Download Nordic Theme
 cd /usr/share/themes/
@@ -55,11 +56,11 @@ fc-cache -vf
 rm ./FiraCode.zip ./Meslo.zip
 
 # Install Nordzy cursor
-git clone https://github.com/alvatip/Nordzy-cursors
-cd Nordzy-cursors
-./install.sh
-cd $builddir
-rm -rf Nordzy-cursors
+# git clone https://github.com/alvatip/Nordzy-cursors
+# cd Nordzy-cursors
+# ./install.sh
+# cd $builddir
+# rm -rf Nordzy-cursors
 
 # Install brave-browser
 nala install apt-transport-https curl -y
@@ -68,12 +69,14 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=
 nala update
 nala install brave-browser -y
 
+# TODO choose graphical login
 # Enable graphical login and change target from CLI to GUI
-systemctl enable lightdm
-systemctl set-default graphical.target
+# systemctl enable lightdm
+# systemctl set-default graphical.target
 
 # Polybar configuration
 bash scripts/changeinterface
 
+# TODO change apt to nala
 # Use nala
-bash scripts/usenala
+# bash scripts/usenala
