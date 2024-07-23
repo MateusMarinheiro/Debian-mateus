@@ -69,6 +69,8 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=
 nala update
 nala install brave-browser -y
 
+# TODO install vs code
+
 # TODO choose graphical login
 # Enable graphical login and change target from CLI to GUI
 # systemctl enable lightdm
